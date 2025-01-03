@@ -56,3 +56,10 @@ jobs:
           target: ${{ matrix.targets }}
           edition: ${{ matrix.profiles }}
           artifacts: true
+      - name: List output files
+        run: ls -la .output
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: .output/*
